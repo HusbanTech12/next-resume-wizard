@@ -72,25 +72,32 @@ const Services = () => {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
-              <Card key={index} className="group hover:shadow-medium transition-all duration-300 animate-fade-in" style={{ animationDelay: `${index * 50}ms` }}>
-                <CardContent className="p-6">
-                  <div className="w-14 h-14 bg-gradient-primary rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                    <service.icon className="text-white" size={28} />
+              <Card 
+                key={index} 
+                className="group relative overflow-hidden border-border/50 bg-card/50 backdrop-blur-sm hover:border-primary/50 hover:shadow-elegant transition-all duration-500 animate-fade-in" 
+                style={{ animationDelay: `${index * 50}ms` }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <CardContent className="relative p-8">
+                  <div className="w-16 h-16 bg-gradient-primary rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-glow">
+                    <service.icon className="text-primary-foreground" size={32} />
                   </div>
-                  <h3 className="text-2xl font-semibold mb-3">{service.title}</h3>
-                  <p className="text-muted-foreground mb-4">{service.description}</p>
-                  <ul className="space-y-2 mb-6">
+                  <h3 className="text-2xl font-bold mb-3 bg-gradient-to-br from-foreground to-foreground/70 bg-clip-text text-transparent">
+                    {service.title}
+                  </h3>
+                  <p className="text-muted-foreground mb-6 leading-relaxed">{service.description}</p>
+                  <ul className="space-y-3 mb-8">
                     {service.features.map((feature, idx) => (
-                      <li key={idx} className="text-sm flex items-center gap-2">
-                        <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
+                      <li key={idx} className="text-sm flex items-center gap-3 text-foreground/80">
+                        <div className="w-2 h-2 bg-gradient-primary rounded-full shadow-sm"></div>
                         {feature}
                       </li>
                     ))}
                   </ul>
                   <Link to={`/services/${service.slug}`}>
-                    <Button variant="outline" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                      Learn More
-                      <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={16} />
+                    <Button variant="ghost" className="group/btn w-full justify-between hover:bg-primary/10">
+                      <span>Learn More</span>
+                      <ArrowRight className="ml-2 group-hover/btn:translate-x-1 transition-transform" size={18} />
                     </Button>
                   </Link>
                 </CardContent>
