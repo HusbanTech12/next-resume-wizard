@@ -56,11 +56,11 @@ const Services = () => {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="bg-gradient-hero py-20">
+      <section className="bg-gradient-mesh py-24">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center animate-fade-in">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Services</h1>
-            <p className="text-lg text-muted-foreground">
+          <div className="max-w-3xl mx-auto text-center animate-slide-in-up">
+            <h1 className="font-heading text-5xl md:text-6xl font-bold mb-6">Our Services</h1>
+            <p className="text-lg text-muted-foreground leading-relaxed">
               Comprehensive technology solutions designed to drive your business forward
             </p>
           </div>
@@ -68,13 +68,13 @@ const Services = () => {
       </section>
 
       {/* Services Grid */}
-      <section className="py-20">
+      <section className="py-24">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
               <Card 
                 key={index} 
-                className="group relative overflow-hidden border-border/50 bg-card/50 backdrop-blur-sm hover:border-primary/50 hover:shadow-elegant transition-all duration-500 animate-fade-in" 
+                className="group relative overflow-hidden border-border/50 bg-card/50 backdrop-blur-sm hover:border-primary/50 transition-all duration-500 animate-scale-in" 
                 style={{ animationDelay: `${index * 50}ms` }}
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -82,7 +82,7 @@ const Services = () => {
                   <div className="w-16 h-16 bg-gradient-primary rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-glow">
                     <service.icon className="text-primary-foreground" size={32} />
                   </div>
-                  <h3 className="text-2xl font-bold mb-3 bg-gradient-to-br from-foreground to-foreground/70 bg-clip-text text-transparent">
+                  <h3 className="font-heading text-2xl font-bold mb-3 bg-gradient-to-br from-foreground to-foreground/70 bg-clip-text text-transparent">
                     {service.title}
                   </h3>
                   <p className="text-muted-foreground mb-6 leading-relaxed">{service.description}</p>
@@ -95,7 +95,7 @@ const Services = () => {
                     ))}
                   </ul>
                   <Link to={`/services/${service.slug}`}>
-                    <Button variant="ghost" className="group/btn w-full justify-between hover:bg-primary/10">
+                    <Button variant="ghost" className="group/btn w-full justify-between hover:bg-primary/10 hover:scale-105 transition-all">
                       <span>Learn More</span>
                       <ArrowRight className="ml-2 group-hover/btn:translate-x-1 transition-transform" size={18} />
                     </Button>
