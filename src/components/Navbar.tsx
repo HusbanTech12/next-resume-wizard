@@ -23,7 +23,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           <Link to="/" className="font-heading text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent hover:scale-105 transition-transform">
-            Elite Solution
+            Company.HF
           </Link>
 
           {/* Desktop Navigation */}
